@@ -11,7 +11,10 @@ export default function Home({ exploreData, cardsData }) {
         <div className="">
             <Head>
                 <title>Kreivc Airbnb</title>
-                <link rel="icon" href="/favicon.ico" />
+                <link
+                    rel="icon"
+                    href="http://lh3.googleusercontent.com/BQnvuZR500pg2ulvv3FBmRI93ODz3AjNfbz92hCieuJLvmbGY36AKhETMTTfTDgpPQI"
+                />
             </Head>
 
             <Header />
@@ -48,7 +51,7 @@ export default function Home({ exploreData, cardsData }) {
                 </section>
 
                 <LargeCard
-                    img="https://links.papareact.com/4cj"
+                    img="https://a0.muscache.com/im/pictures/2da67c1c-0c61-4629-8798-1d4de1ac9291.jpg?im_w=1440"
                     title="The Greatest Outdoors"
                     description="Wishlists curated by Airbnb."
                     buttonText="Get Inspired"
@@ -61,12 +64,12 @@ export default function Home({ exploreData, cardsData }) {
 }
 
 export async function getStaticProps() {
-    const exploreData = await fetch("https://links.papareact.com/pyp").then(
+    const exploreData = await fetch("https://jsonkeeper.com/b/4G1G").then(
         (res) => res.json()
     );
 
-    const cardsData = await fetch("https://links.papareact.com/zp1").then(
-        (res) => res.json()
+    const cardsData = await fetch("https://jsonkeeper.com/b/VHHT").then((res) =>
+        res.json()
     );
 
     return {

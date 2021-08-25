@@ -1,8 +1,10 @@
+import Head from "next/head";
 import { useRouter } from "next/dist/client/router";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { format } from "date-fns";
 import InfoCard from "../components/InfoCard";
+import Map from "../components/Map";
 
 function Search({ searchResults }) {
     const router = useRouter();
@@ -14,6 +16,13 @@ function Search({ searchResults }) {
 
     return (
         <div>
+            <Head>
+                <title>{location}</title>
+                <link
+                    rel="icon"
+                    href="http://lh3.googleusercontent.com/BQnvuZR500pg2ulvv3FBmRI93ODz3AjNfbz92hCieuJLvmbGY36AKhETMTTfTDgpPQI"
+                />
+            </Head>
             <Header
                 placeholder={`${location} | ${range} | ${noOfGuests} guests`}
             />
@@ -41,6 +50,9 @@ function Search({ searchResults }) {
                         ))}
                     </div>
                 </section>
+                <section className="hidden xl:inline-flex min-w-[600px]">
+                    <Map searchResults={searchResults} />
+                </section>
             </main>
 
             <Footer />
@@ -51,7 +63,7 @@ function Search({ searchResults }) {
 export default Search;
 
 export async function getServerSideProps() {
-    const searchResults = await fetch("https://links.papareact.com/isz").then(
+    const searchResults = await fetch("https://jsonkeeper.com/b/5NPS").then(
         (res) => res.json()
     );
 
